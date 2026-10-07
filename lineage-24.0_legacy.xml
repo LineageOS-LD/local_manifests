@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2021 The Android Open Source Project
+     Copyright (C) 2024-2026 Hadad <hadad@linuxmail.org>
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<manifest>
+  <!-- Remotes -->
+  <remote name="LineageOS-LD"
+          fetch="https://github.com/LineageOS-LD/"
+          revision="lineage-24.0"
+          clone-depth="1" />
+
+  <!-- Build -->
+  <remove-project name="LineageOS/android_build" />
+  <project path="build/make" name="android_build" groups="pdk,sysui-studio" remote="LineageOS-LD" >
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+  <remove-project name="LineageOS/android_build_soong" />
+  <project path="build/soong" name="android_build_soong" groups="pdk,tradefed,sysui-studio" remote="LineageOS-LD" />
+
+  <!-- Frameworks -->
+  <remove-project name="LineageOS/android_frameworks_av" />
+  <project path="frameworks/av" name="android_frameworks_av" groups="pdk,sysui-studio" remote="LineageOS-LD" />
+  <remove-project name="LineageOS/android_frameworks_base" />
+  <project path="frameworks/base" name="android_frameworks_base" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="LineageOS-LD" />
+  <remove-project name="LineageOS/android_frameworks_native" />
+  <project path="frameworks/native" name="android_frameworks_native" groups="pdk" remote="LineageOS-LD" />
+
+  <!-- GCC -->
+  <project path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" name="LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9" groups="pdk,linux,arm" clone-depth="1" revision="lineage-19.1" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" name="LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9" groups="pdk,linux,arm" clone-depth="1" revision="lineage-19.1" />
+  <project path="prebuilts/gcc/linux-x86/x86/x86_64-linux-android-4.9" name="LineageOS/android_prebuilts_gcc_linux-x86_x86_x86_64-linux-android-4.9" groups="pdk,linux,x86" clone-depth="1" revision="lineage-19.1" />
+
+  <!-- Hardware -->
+  <remove-project name="LineageOS/android_hardware_interfaces" />
+  <project path="hardware/interfaces" name="android_hardware_interfaces" groups="pdk,sysui-studio" remote="LineageOS-LD" />
+
+  <!-- Kernel -->
+  <remove-project name="LineageOS/android_kernel_configs" />
+  <project path="kernel/configs" name="android_kernel_configs" groups="vts,pdk" remote="LineageOS-LD" />
+
+  <!-- Packages -->
+  <remove-project name="LineageOS/android_packages_modules_Connectivity" />
+  <project path="packages/modules/Connectivity" name="android_packages_modules_Connectivity" groups="pdk-cw-fs,pdk-fs" remote="LineageOS-LD" />
+  <remove-project name="platform/packages/modules/DnsResolver" />
+  <project path="packages/modules/DnsResolver" name="android_packages_modules_DnsResolver" groups="pdk-cw-fs,pdk-fs" remote="LineageOS-LD" />
+  <remove-project name="LineageOS/android_packages_modules_Wifi" />
+  <project path="packages/modules/Wifi" name="android_packages_modules_Wifi" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="LineageOS-LD" />
+
+  <!-- Recovery -->
+  <remove-project name="LineageOS/android_bootable_recovery" />
+  <project path="bootable/recovery" name="android_bootable_recovery" groups="pdk" remote="LineageOS-LD" />
+
+  <!-- SELinux -->
+  <remove-project name="LineageOS/android_device_lineage_sepolicy" />
+  <project path="device/lineage/sepolicy" name="android_device_lineage_sepolicy" remote="LineageOS-LD" />
+  <remove-project name="LineageOS/android_system_sepolicy" />
+  <project path="system/sepolicy" name="android_system_sepolicy" groups="pdk" remote="LineageOS-LD" />
+
+  <!-- System -->
+  <remove-project name="LineageOS/android_system_bpf" />
+  <project path="system/bpf" name="android_system_bpf" groups="pdk" remote="LineageOS-LD" />
+  <remove-project name="LineageOS/android_system_core" />
+  <project path="system/core" name="android_system_core" groups="pdk" remote="LineageOS-LD" />
+  <remove-project name="LineageOS/android_system_extras" />
+  <project path="system/extras" name="android_system_extras" groups="pdk" remote="LineageOS-LD" />
+  <remove-project name="LineageOS/android_system_netd" />
+  <project path="system/netd" name="android_system_netd" groups="pdk" remote="LineageOS-LD" />
+  <remove-project name="LineageOS/android_system_security" />
+  <project path="system/security" name="android_system_security" groups="pdk" remote="LineageOS-LD" />
+  <remove-project name="LineageOS/android_system_vold" />
+  <project path="system/vold" name="android_system_vold" groups="pdk" remote="LineageOS-LD" />
+
+  <!-- Vendor -->
+  <remove-project name="LineageOS/android_vendor_qcom_opensource_power" />
+  <project path="vendor/qcom/opensource/power" name="android_vendor_qcom_opensource_power" groups="qcom,kaanapali-vendor" remote="LineageOS-LD" />
+  <remove-project name="LineageOS/android_vendor_lineage" />
+  <project path="vendor/lineage" name="android_vendor_lineage" remote="LineageOS-LD" />
+</manifest>
