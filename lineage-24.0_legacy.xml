@@ -80,6 +80,8 @@
   <project path="system/core" name="android_system_core" groups="pdk" remote="LineageOS-LD" />
   <remove-project name="LineageOS/android_system_extras" />
   <project path="system/extras" name="android_system_extras" groups="pdk" remote="LineageOS-LD" />
+  <remove-project name="LineageOS/android_system_fs_fs_mgr" />
+  <project path="system/fs/fs_mgr" name="android_system_fs_fs_mgr" groups="pdk" remote="LineageOS-LD" />
   <remove-project name="LineageOS/android_system_netd" />
   <project path="system/netd" name="android_system_netd" groups="pdk" remote="LineageOS-LD" />
   <remove-project name="LineageOS/android_system_security" />
