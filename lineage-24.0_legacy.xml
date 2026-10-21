@@ -18,8 +18,7 @@
   <!-- Remotes -->
   <remote name="LineageOS-LD"
           fetch="https://github.com/LineageOS-LD/"
-          revision="lineage-24.0"
-          clone-depth="1" />
+          revision="lineage-24.0" />
 
   <!-- Build -->
   <remove-project name="LineageOS/android_build" />
